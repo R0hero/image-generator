@@ -1,5 +1,6 @@
 #include <cstdint>
 #include <vector>
+#include <string>
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
@@ -12,6 +13,10 @@ class Canvas {
         };
         // member functions
         void setPixel(int x, int y, Color c) {
+
+        };
+
+        void save(const std::string& filename) {
 
         };
     private:
