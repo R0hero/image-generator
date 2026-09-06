@@ -7,7 +7,9 @@
 
 class Canvas {
     public:
-        Canvas(int width, int height);
+        Canvas(int width, int height) : width_(width), height_(height), pixels_(width * height * 3) {
+            
+        };
         // member functions
         void setPixel(int x, int y, Color c) {
 
