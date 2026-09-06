@@ -15,5 +15,6 @@ class Canvas {
 
         };
     private:
-        int width_, height;
+        int width_, height_;
+        std::vector<uint8_t> pixels_;
 };
