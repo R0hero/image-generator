@@ -6,9 +6,9 @@ class Canvas {
     public:
         Canvas(int width, int height);
         // member functions
-        void setPixel(int x, int y, struct color) {
+        void setPixel(int x, int y, Color c) {
 
-        }
+        };
     private:
         int width_, height;
 };
