@@ -12,7 +12,7 @@ int main() {
             Color c;
             c.r = normalizeToRange(x, 0, width, 0, 255);
             c.g = 0;
-            c.b = normalizeToRange(y, 0, width, 0, 255);
+            c.b = normalizeToRange(y, 0, height, 0, 255);
 
             canvas.setPixel(x, y, c);
         };
