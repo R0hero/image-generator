@@ -11,7 +11,7 @@ class Canvas {
             
         };
         // member functions
-        void setPixel(int x, int y, Color c) {
+        void setPixel(int x, int y, const Color& c) {
 
         };
 
