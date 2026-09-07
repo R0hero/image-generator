@@ -1,5 +1,6 @@
 #include "image_generator/canvas.hpp"
 #include "image_generator/color.hpp"
+#include "image_generator/utils.hpp"
 
 int main() {
     int width = 100;
@@ -9,9 +10,9 @@ int main() {
     for (int x = 0; x =< width-1; x++) {
         for (int y = 0; y =< height-1; y++) {
             Color c;
-            c.r = x;
+            c.r = normalizeToRange(x, 0, width, 0, 255);
             c.g = 0;
-            c.b = y;
+            c.b = normalizeToRange(y, 0, width, 0, 255);
 
             canvas.setPixel(x, y, c);
         };
