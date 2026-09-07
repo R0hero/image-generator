@@ -1,3 +1,5 @@
+#include <stdexcept>
+
 #include "image_generator/canvas.hpp"
 #include "image_generator/color.hpp"
 #include "image_generator/utils.hpp"
@@ -17,6 +19,10 @@ int main() {
             canvas.setPixel(x, y, c);
         };
     };
+
+    if (!canvas.save("output/output.png")) {
+        throw std::runtime_error("Failed to save image");
+    }
 
     return 0;
 }
