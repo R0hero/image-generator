@@ -8,7 +8,9 @@ Canvas::Canvas(int width, int height) : width_(width), height_(height), pixels_(
 
 }
 void Canvas::setPixel(int x, int y, const Color& c) {
-
+    int row_pixels = y * width_ * 3;
+    int index = row_pixels + x * 3;
+    pixels_[index] = c.r; pixels_[index+1] = c.g; pixels_[index+2] = c.b;
 }
 void Canvas::save(const std::string& filename) {
     
