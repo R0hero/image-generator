@@ -11,11 +11,7 @@ int main() {
 
     for (int x = 0; x <= width-1; x++) {
         for (int y = 0; y <= height-1; y++) {
-            Color c;
-            c.r = normalizeToRange(x, 0, width, 0, 255);
-            c.g = 0;
-            c.b = normalizeToRange(y, 0, height, 0, 255);
-
+            Color c(0, normalizeToRange(x, 0, width, 0, 255), normalizeToRange(y, 0, height, 0, 255));
             canvas.setPixel(x, y, c);
         };
     };
