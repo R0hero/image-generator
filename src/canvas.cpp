@@ -1,24 +1,15 @@
-#include <cstdint>
-#include <vector>
-#include <string>
-
-#include "stb_image_write.h"
 #include <image_generator/color.hpp>
+#include <image_generator/canvas.hpp>
 
-class Canvas {
-    public:
-        Canvas(int width, int height) : width_(width), height_(height), pixels_(width * height * 3) {
-            
-        };
-        // member functions
-        void setPixel(int x, int y, const Color& c) {
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
 
-        };
+Canvas::Canvas(int width, int height) : width_(width), height_(height), pixels_(width * height * 3) {
 
-        void save(const std::string& filename) {
+}
+void Canvas::setPixel(int x, int y, const Color& c) {
 
-        };
-    private:
-        int width_, height_;
-        std::vector<uint8_t> pixels_;
-};
+}
+void Canvas::save(const std::string& filename) {
+    
+}
