@@ -7,8 +7,8 @@ int main() {
     int height = 100;
     Canvas canvas(width, height);
 
-    for (int x = 0; x =< width-1; x++) {
-        for (int y = 0; y =< height-1; y++) {
+    for (int x = 0; x <= width-1; x++) {
+        for (int y = 0; y <= height-1; y++) {
             Color c;
             c.r = normalizeToRange(x, 0, width, 0, 255);
             c.g = 0;
