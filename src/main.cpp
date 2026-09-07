@@ -2,7 +2,7 @@
 
 #include "image_generator/canvas.hpp"
 #include "image_generator/color.hpp"
-#include "image_generator/utils.hpp"
+#include "image_generator/utils/math_utils.hpp"
 
 int main() {
     int width = 500;
