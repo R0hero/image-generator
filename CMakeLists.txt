@@ -13,6 +13,7 @@ FetchContent_MakeAvailable(stb)
 
 add_executable(image_generator
     src/main.cpp
+    src/canvas.cpp
 )
 
-target_include_directories(image_generator PRIVATE ${stb_SOURCE_DIR})
+target_include_directories(image_generator PRIVATE include ${stb_SOURCE_DIR})
