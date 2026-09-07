@@ -5,8 +5,8 @@
 #include "image_generator/utils.hpp"
 
 int main() {
-    int width = 100;
-    int height = 100;
+    int width = 500;
+    int height = 500;
     Canvas canvas(width, height);
 
     for (int x = 0; x <= width-1; x++) {
