@@ -12,6 +12,12 @@ void Canvas::setPixel(int x, int y, const Color& c) {
     int index = row_pixels + x * 3;
     pixels_[index] = c.r; pixels_[index+1] = c.g; pixels_[index+2] = c.b;
 }
-void Canvas::save(const std::string& filename) {
-    
+bool Canvas::save(const std::string& filename) {
+    int component_count = 3;
+    int stride_expression = width_*component_count;
+    int status = stbi_write_png(filename.c_str(), width_, height_, component_count, pixels_.data(), stride_expression);
+    if (status == 0) {
+        return false;
+    }
+    return true;
 }
