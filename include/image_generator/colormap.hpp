@@ -8,5 +8,5 @@ class Colormap {
         // member functions
         Color sample(double t) const;
     private:
-        std::vector<Color> colors;
+        std::vector<Color> colors_;
 };
