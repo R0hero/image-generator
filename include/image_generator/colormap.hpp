@@ -14,7 +14,8 @@ class Colormap {
         static Colormap magma();
         static Colormap plasma();
         static Colormap cividis();
-        
+        static Colormap grays();
+        static Colormap electric();
     private:
         std::vector<Color> colors_;
 };

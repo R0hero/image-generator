@@ -72,3 +72,22 @@ Colormap Colormap::cividis() {
     };
     return Colormap(colors);
 }
+
+Colormap Colormap::grays() {
+    std::vector<Color> colors = {
+        Color(0, 0, 0),
+        Color(255, 255, 255)
+    };
+    return Colormap(colors);
+}
+
+Colormap Colormap::electric() {
+    std::vector<Color> colors = {
+        Color(163, 0, 255),
+        Color(111, 0, 255),
+        Color(86, 0, 255),
+        Color(0, 120, 255),
+        Color(0, 159, 255)
+    };
+    return Colormap(colors);
+}
