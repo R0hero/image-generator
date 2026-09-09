@@ -9,7 +9,7 @@
 
 int main() {
     int width = 500;
-    int height = 500;
+    int height = 200;
     Canvas canvas(width, height);
 
     for (int x = 0; x <= width-1; x++) {
