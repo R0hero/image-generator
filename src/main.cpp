@@ -12,6 +12,8 @@ int main() {
     int height = 200;
     Canvas canvas(width, height);
 
+    Colormap colormap = Colormap::viridis();
+
     for (int x = 0; x <= width-1; x++) {
         for (int y = 0; y <= height-1; y++) {
             // test for if canvas is being filled with the same colors no matte the size of the canvas
@@ -23,7 +25,6 @@ int main() {
             // Color c = lerpColor(a, b, 0.4);
             
             double t = static_cast<double>(x) / (width - 1);
-            Colormap colormap = Colormap::viridis();
             Color sampled_color = colormap.sample(t);
 
             canvas.setPixel(x, y, sampled_color);
