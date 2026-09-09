@@ -23,13 +23,7 @@ int main() {
             // Color c = lerpColor(a, b, 0.4);
             
             double t = static_cast<double>(x) / (width - 1);
-            Color a(253, 231, 37);
-            Color b(94, 201, 98);
-            Color c(33, 145, 140);
-            Color d(59, 82, 139);
-            Color e(68, 1, 84);
-            std::vector<Color> colors = {a, b, c, d, e};
-            Colormap colormap(colors);
+            Colormap colormap = Colormap::viridis();
             Color sampled_color = colormap.sample(t);
 
             canvas.setPixel(x, y, sampled_color);
