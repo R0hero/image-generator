@@ -16,3 +16,15 @@ Color Colormap::sample(double t) const {
     Color color = lerpColor(colors_[segment_index], colors_[segment_index+1], local_t);
     return color;
 }
+
+// static colormaps
+Colormap Colormap::viridis() {
+    std::vector<Color> colors = {
+        Color(253, 231, 37), 
+        Color(94, 201, 98), 
+        Color(33, 145, 140), 
+        Color(59, 82, 139), 
+        Color(68, 1, 84)
+    };
+    return Colormap(colors);
+}

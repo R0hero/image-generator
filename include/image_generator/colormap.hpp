@@ -7,6 +7,9 @@ class Colormap {
         Colormap(const std::vector<Color>& colors);
         // member functions
         Color sample(double t) const;
+
+        // static colormaps
+        static Colormap viridis();
     private:
         std::vector<Color> colors_;
 };
