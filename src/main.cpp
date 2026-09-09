@@ -2,6 +2,7 @@
 
 #include "image_generator/canvas.hpp"
 #include "image_generator/color.hpp"
+#include "image_generator/colormap.hpp"
 #include "image_generator/utils/math_utils.hpp"
 #include "image_generator/utils/color_utils.hpp"
 
