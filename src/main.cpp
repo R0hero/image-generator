@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <vector>
 
 #include "image_generator/canvas.hpp"
 #include "image_generator/color.hpp"
