@@ -28,3 +28,47 @@ Colormap Colormap::viridis() {
     };
     return Colormap(colors);
 }
+
+Colormap Colormap::inferno() {
+    std::vector<Color> colors = {
+        Color(0, 0, 4),
+        Color(87, 16, 110),
+        Color(188, 55, 84),
+        Color(249, 142, 9),
+        Color(252, 255, 164)
+    };
+    return Colormap(colors);
+}
+
+Colormap Colormap::magma() {
+    std::vector<Color> colors = {
+        Color(0,0,4),
+        Color(81, 18, 124),
+        Color(183, 55, 121),
+        Color(252, 137, 97),
+        Color(252, 253, 191)
+    };
+    return Colormap(colors);
+}
+
+Colormap Colormap::plasma() {
+    std::vector<Color> colors = {
+        Color(13, 8, 135),
+        Color(126, 3, 168),
+        Color(204, 71, 120),
+        Color(248, 149, 64),
+        Color(240, 249, 33)
+    };
+    return Colormap(colors);
+}
+
+Colormap Colormap::cividis() {
+    std::vector<Color> colors = {
+        Color(0, 32, 81),
+        Color(60, 77, 110),
+        Color(127, 124, 117),
+        Color(187, 175, 113),
+        Color(253, 234, 69)
+    };
+    return Colormap(colors);
+}
