@@ -1,5 +1,9 @@
-#include <image_generator/color.hpp>
 #include <image_generator/canvas.hpp>
+
+#include <string>
+#include <cstdint>
+
+#include <image_generator/color.hpp>
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
