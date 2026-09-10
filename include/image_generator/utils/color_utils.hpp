@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <stdexcept>
+#include <iostream>
 
 #include "image_generator/color.hpp"
 
@@ -10,6 +11,11 @@ inline Color lerpColor(const Color& a, const Color& b, double t) {
     uint8_t lerp_b = static_cast<uint8_t>(a.b + (b.b - a.b ) * t);
     Color c(lerp_r, lerp_g, lerp_b);
     return c;
+}
+
+inline std::ostream& operator<<(std::ostream& os, const Color& color) {
+    os << "Color(" <<static_cast<int>(color.r) << ", " << static_cast<int>(color.g) << ", " << static_cast<int>(color.b) << ")";
+    return os;
 }
 
 inline Color hexToColor(const std::string& c) {
