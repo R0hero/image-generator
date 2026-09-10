@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+
 #include "image_generator/color.hpp"
 
 class Colormap {
