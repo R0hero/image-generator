@@ -1,8 +1,10 @@
 #include "image_generator/colormap.hpp"
-#include "image_generator/utils/color_utils.hpp"
+
 #include <vector>
 #include <algorithm>
 #include <string>
+
+#include "image_generator/utils/color_utils.hpp"
 
 Colormap::Colormap(const std::vector<Color>& colors) : colors_(colors) {
 

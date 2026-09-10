@@ -1,6 +1,6 @@
 #pragma once
-#include "image_generator/color.hpp"
 #include <vector>
+#include "image_generator/color.hpp"
 
 class Colormap {
     public:

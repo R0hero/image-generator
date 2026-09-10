@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <stdexcept>
+
 #include "image_generator/color.hpp"
 
 inline Color lerpColor(const Color& a, const Color& b, double t) {
