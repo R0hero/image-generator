@@ -12,7 +12,7 @@ int main() {
     int height = 200;
     Canvas canvas(width, height);
 
-    Colormap colormap = Colormap::electric();
+    Colormap colormap = Colormap::viridis();
 
     for (int x = 0; x <= width-1; x++) {
         for (int y = 0; y <= height-1; y++) {

@@ -19,9 +19,13 @@ inline Color hexToColor(const std::string& c) {
         throw std::invalid_argument("input is not correct hex color");
     }
     uint8_t r, g, b;
-    r = std::stoi(c.substr(1,2), nullptr, 16);
-    g = std::stoi(c.substr(3,2), nullptr, 16);
-    b = std::stoi(c.substr(5,2), nullptr, 16);
+    try {
+        r = std::stoi(c.substr(1,2), nullptr, 16);
+        g = std::stoi(c.substr(3,2), nullptr, 16);
+        b = std::stoi(c.substr(5,2), nullptr, 16);
+    } catch (const std::invalid_argument&) {
+        throw std::invalid_argument("input is not correct hex color");
+    }
 
     return Color(r, g, b);
 }
