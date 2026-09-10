@@ -11,6 +11,23 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(stb)
 
+FetchContent_Declare(
+    catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG v3.16.0
+    GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(catch2)
+
+add_executable(tests 
+    tests/test.cpp
+    src/colormap.cpp
+    src/canvas.cpp
+)
+
+target_include_directories(tests PRIVATE include)
+target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
+
 add_executable(image_generator
     src/main.cpp
     src/canvas.cpp
