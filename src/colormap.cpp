@@ -21,11 +21,11 @@ Color Colormap::sample(double t) const {
 // static colormaps
 Colormap Colormap::viridis() {
     std::vector<Color> colors = {
-        hexToColor("#fde725"),//Color(253, 231, 37), 
-        hexToColor("#5ec962"),//Color(94, 201, 98), 
-        hexToColor("#21918c"),//Color(33, 145, 140), 
-        hexToColor("#3b528b"),//Color(59, 82, 139), 
-        hexToColor("#440154")//Color(68, 1, 84)
+        hexToColor("#fde725"), 
+        hexToColor("#5ec962"), 
+        hexToColor("#21918c"), 
+        hexToColor("#3b528b"), 
+        hexToColor("#440154")
     };
     return Colormap(colors);
 }
