@@ -19,6 +19,7 @@ Color Colormap::sample(double t) const {
 }
 
 // static colormaps
+// source: https://hauselin.github.io/colorpalettejs/ (viridis to cividis)
 Colormap Colormap::viridis() {
     std::vector<Color> colors = {
         hexToColor("#fde725"), 
@@ -82,6 +83,7 @@ Colormap Colormap::grays() {
     return Colormap(colors);
 }
 
+// source: https://www.color-hex.com/color-palette/6061
 Colormap Colormap::electric() {
     std::vector<Color> colors = {
         Color(163, 0, 255),
