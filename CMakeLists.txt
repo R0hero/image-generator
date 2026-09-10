@@ -19,19 +19,19 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(catch2)
 
+add_library(image_generator_lib
+    src/canvas.cpp
+    src/colormap.cpp
+)
+target_include_directories(image_generator_lib PUBLIC include)
+
 add_executable(tests 
     tests/test.cpp
-    src/colormap.cpp
-    src/canvas.cpp
 )
-
-target_include_directories(tests PRIVATE include)
-target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(tests PRIVATE image_generator_lib Catch2::Catch2WithMain)
 
 add_executable(image_generator
     src/main.cpp
-    src/canvas.cpp
-    src/colormap.cpp
 )
-
-target_include_directories(image_generator PRIVATE include ${stb_SOURCE_DIR})
+target_link_libraries(image_generator PRIVATE image_generator_lib)
+target_include_directories(image_generator PRIVATE ${stb_SOURCE_DIR})
