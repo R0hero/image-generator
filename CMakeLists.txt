@@ -23,7 +23,7 @@ add_library(image_generator_lib
     src/canvas.cpp
     src/colormap.cpp
 )
-target_include_directories(image_generator_lib PUBLIC include)
+target_include_directories(image_generator_lib PUBLIC include PRIVATE ${stb_SOURCE_DIR})
 
 add_executable(tests 
     tests/test.cpp
@@ -34,4 +34,3 @@ add_executable(image_generator
     src/main.cpp
 )
 target_link_libraries(image_generator PRIVATE image_generator_lib)
-target_include_directories(image_generator PRIVATE ${stb_SOURCE_DIR})
