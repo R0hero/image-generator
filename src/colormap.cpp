@@ -11,6 +11,7 @@ Colormap::Colormap(const std::vector<Color>& colors) : colors_(colors) {
 }
 
 Color Colormap::sample(double t) const {
+    t = std::clamp(t, 0.0, 1.0);
     int sections = colors_.size() - 1;
     int segment_index = static_cast<int>(t * sections);
     segment_index = std::min(segment_index, sections - 1);
