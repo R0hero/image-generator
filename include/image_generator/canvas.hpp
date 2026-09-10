@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-#include <image_generator/color.hpp>
+#include "image_generator/color.hpp"
 
 class Canvas {
     public:
