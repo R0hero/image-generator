@@ -58,3 +58,21 @@ TEST_CASE("Colormap::sample returns correct color at boundaries with 3 colors", 
         REQUIRE(result.b == 128);
     }
 }
+
+TEST_CASE("Colormap::sample returns correct colors outside boundaries", "[colormap]") {
+    Colormap cmap({Color(0,0,0), Color(255,255,255)});
+    
+    SECTION("t=-0.2 returns first color") {
+        Color result = cmap.sample(-0.2);
+        REQUIRE(result.r == 0);
+        REQUIRE(result.g == 0);
+        REQUIRE(result.b == 0);
+    }
+    
+    SECTION("t=1.2 returns last color") {
+        Color result = cmap.sample(1.2);
+        REQUIRE(result.r == 255);
+        REQUIRE(result.g == 255);
+        REQUIRE(result.b == 255);
+    }
+}
