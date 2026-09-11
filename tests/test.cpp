@@ -51,8 +51,8 @@ TEST_CASE("Colormap::sample returns correct color at boundaries with 3 colors", 
         REQUIRE(result.b == 255);
     }
 
-    SECTION("t=0.33 returns interpolation of first and second color") {
-        Color result = cmap.sample(0.33);
+    SECTION("t=0.25 returns interpolation of first and second color") {
+        Color result = cmap.sample(0.25);
         REQUIRE(result.r == 128);
         REQUIRE(result.g == 128);
         REQUIRE(result.b == 128);
