@@ -2,7 +2,7 @@
 
 #include "image_generator/utils/color_utils.hpp"
 
-TEST_CASE("lerpColor out of bounds", "[color_utils]") {
+TEST_CASE("lerpColor out of bounds", "[lerpColor]") {
     Color a(0, 0, 0);
     Color b(255, 255, 255);
 
@@ -21,7 +21,7 @@ TEST_CASE("lerpColor out of bounds", "[color_utils]") {
     }
 }
 
-TEST_CASE("lerpColor interpolating between two colors", "[color_utils]") {
+TEST_CASE("lerpColor interpolating between two colors", "[lerpColor]") {
     Color a(0, 0, 0);
     Color b(255, 255, 255);
 
