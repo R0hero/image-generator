@@ -1,5 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
 
+#include <sstream>
+
 #include "image_generator/utils/color_utils.hpp"
 
 TEST_CASE("lerpColor out of bounds", "[lerpColor]") {
@@ -101,4 +103,11 @@ TEST_CASE("hexToColor returning error message on incorrect hex code", "[hexToCol
     SECTION("hex code numbers exceeding base 16") {
         REQUIRE_THROWS_AS(hexToColor("#GGGGGG"), std::invalid_argument);
     }
+}
+
+TEST_CASE("operator<< formats Color correctly", "[operator<<]") {
+    Color c(10,20,30);
+    std::ostringstream oss;
+    oss << c;
+    REQUIRE(oss.str() == "Color(10, 20, 30)");
 }
