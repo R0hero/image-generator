@@ -26,7 +26,7 @@ add_library(image_generator_lib
 target_include_directories(image_generator_lib PUBLIC include PRIVATE ${stb_SOURCE_DIR})
 
 add_executable(tests 
-    tests/test.cpp
+    tests/test_colormap.cpp
 )
 target_link_libraries(tests PRIVATE image_generator_lib Catch2::Catch2WithMain)
 
