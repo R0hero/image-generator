@@ -59,6 +59,38 @@ TEST_CASE("Colormap::sample returns correct color at boundaries with 3 colors", 
     }
 }
 
+TEST_CASE("Colormap::sample returns correct colors between segments with 5 colors", "[colormap]") {
+    Colormap cmap({Color(0,0,0), Color(64,64,64), Color(128,128,128), Color(192,192,192), Color(255,255,255)});
+
+    SECTION("t=0.2 returns color in first segment") {
+        Color result = cmap.sample(0.2);
+        REQUIRE(result.r == 51);
+        REQUIRE(result.g == 51);
+        REQUIRE(result.b == 51);
+    }
+
+    SECTION("t=0.4 returns color in second segment") {
+        Color result = cmap.sample(0.4);
+        REQUIRE(result.r == 102);
+        REQUIRE(result.g == 102);
+        REQUIRE(result.b == 102);
+    }
+    
+    SECTION("t=0.6 returns color in third segment") {
+        Color result = cmap.sample(0.6);
+        REQUIRE(result.r == 153);
+        REQUIRE(result.g == 153);
+        REQUIRE(result.b == 153);
+    }
+    
+    SECTION("t=0.8 returns color in fourth segment") {
+        Color result = cmap.sample(0.8);
+        REQUIRE(result.r == 204);
+        REQUIRE(result.g == 204);
+        REQUIRE(result.b == 204);
+    }
+}
+
 TEST_CASE("Colormap::sample returns correct colors outside boundaries", "[colormap]") {
     Colormap cmap({Color(0,0,0), Color(255,255,255)});
     
