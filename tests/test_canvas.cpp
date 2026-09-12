@@ -33,3 +33,29 @@ TEST_CASE("Canvas::setPixel sets color and Canvas::getPixel returns same color",
         REQUIRE(result.b == c.b);
     }
 }
+
+TEST_CASE("Canvas::setPixel returns error when out of bounds", "[canvas]") {
+    Canvas canvas(500, 500);
+    Color c(0, 0, 0);
+
+    SECTION("Set pixel at negative values") {
+        REQUIRE_THROWS_AS(canvas.setPixel(-1, -1, c), std::invalid_argument);
+    }
+
+    SECTION("Set pixel at too large values") {
+        REQUIRE_THROWS_AS(canvas.setPixel(501, 501, c), std::invalid_argument);
+    }
+}
+
+TEST_CASE("Canvas::getPixel returns error when out of bounds", "[canvas]") {
+    Canvas canvas(500, 500);
+    Color c(0, 0, 0);
+
+    SECTION("Set pixel at negative values") {
+        REQUIRE_THROWS_AS(canvas.getPixel(-1, -1), std::invalid_argument);
+    }
+
+    SECTION("Set pixel at too large values") {
+        REQUIRE_THROWS_AS(canvas.getPixel(501, 501), std::invalid_argument);
+    }
+}
