@@ -2,7 +2,7 @@
 
 #include "image_generator/colormap.hpp"
 
-TEST_CASE("Colormap::sample returns correct color at boundaries with 2 colors", "[colormap]") {
+TEST_CASE("Colormap::sample returns correct color at boundaries with 2 colors", "[colormap][sample]") {
     Colormap cmap({Color(0,0,0), Color(255,255,255)});
 
     SECTION("t=0.0 returns first color") {
@@ -27,7 +27,7 @@ TEST_CASE("Colormap::sample returns correct color at boundaries with 2 colors", 
     }
 }
 
-TEST_CASE("Colormap::sample returns correct color at boundaries with 3 colors", "[colormap]") {
+TEST_CASE("Colormap::sample returns correct color at boundaries with 3 colors", "[colormap][sample]") {
     Colormap cmap({Color(0,0,0), Color(255,255,255), Color(0,0,0)});
 
     SECTION("t=0.0 returns first color") {
@@ -59,7 +59,7 @@ TEST_CASE("Colormap::sample returns correct color at boundaries with 3 colors", 
     }
 }
 
-TEST_CASE("Colormap::sample returns correct colors between segments with 5 colors", "[colormap]") {
+TEST_CASE("Colormap::sample returns correct colors between segments with 5 colors", "[colormap][sample]") {
     Colormap cmap({Color(0,0,0), Color(64,64,64), Color(128,128,128), Color(192,192,192), Color(255,255,255)});
 
     SECTION("t=0.2 returns color in first segment") {
@@ -91,7 +91,7 @@ TEST_CASE("Colormap::sample returns correct colors between segments with 5 color
     }
 }
 
-TEST_CASE("Colormap::sample returns correct colors outside boundaries", "[colormap]") {
+TEST_CASE("Colormap::sample returns correct colors outside boundaries", "[colormap][sample]") {
     Colormap cmap({Color(0,0,0), Color(255,255,255)});
     
     SECTION("t=-0.2 returns first color") {

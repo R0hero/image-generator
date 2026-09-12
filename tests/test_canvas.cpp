@@ -23,7 +23,7 @@ TEST_CASE("Ensure canvas size is correct", "[canvas]") {
     }
 } 
 
-TEST_CASE("Canvas::setPixel sets color and Canvas::getPixel returns same color", "[canvas]") {
+TEST_CASE("Canvas::setPixel sets color and Canvas::getPixel returns same color", "[canvas][setPixel][getPixel]") {
     Canvas canvas(500, 500);
     Color c(100,100,100);
     
@@ -55,7 +55,7 @@ TEST_CASE("Canvas::setPixel sets color and Canvas::getPixel returns same color",
     }
 }
 
-TEST_CASE("Canvas::setPixel returns error when out of bounds", "[canvas]") {
+TEST_CASE("Canvas::setPixel returns error when out of bounds", "[canvas][setPixel]") {
     Canvas canvas(500, 500);
     Color c(0, 0, 0);
 
@@ -76,7 +76,7 @@ TEST_CASE("Canvas::setPixel returns error when out of bounds", "[canvas]") {
     }
 }
 
-TEST_CASE("Canvas::getPixel returns error when out of bounds", "[canvas]") {
+TEST_CASE("Canvas::getPixel returns error when out of bounds", "[canvas][getPixel]") {
     Canvas canvas(500, 500);
     Color c(0, 0, 0);
 

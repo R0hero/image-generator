@@ -4,7 +4,7 @@
 
 #include "image_generator/utils/color_utils.hpp"
 
-TEST_CASE("lerpColor out of bounds", "[lerpColor]") {
+TEST_CASE("lerpColor out of bounds", "[color_utils][lerpColor]") {
     Color a(0, 0, 0);
     Color b(255, 255, 255);
 
@@ -23,7 +23,7 @@ TEST_CASE("lerpColor out of bounds", "[lerpColor]") {
     }
 }
 
-TEST_CASE("lerpColor interpolating between two colors", "[lerpColor]") {
+TEST_CASE("lerpColor interpolating between two colors", "[color_utils][lerpColor]") {
     Color a(0, 0, 0);
     Color b(255, 255, 255);
 
@@ -56,7 +56,7 @@ TEST_CASE("lerpColor interpolating between two colors", "[lerpColor]") {
     }
 }
 
-TEST_CASE("hexToColor returning correct color", "[hexToColor]") {
+TEST_CASE("hexToColor returning correct color", "[color_utils][hexToColor]") {
     SECTION("hexToColor return black") {
         Color c(0,0,0);
         Color result = hexToColor("#000000");
@@ -91,7 +91,7 @@ TEST_CASE("hexToColor returning correct color", "[hexToColor]") {
 
 }
 
-TEST_CASE("hexToColor returning error message on incorrect hex code", "[hexToColor]") {
+TEST_CASE("hexToColor returning error message on incorrect hex code", "[color_utils][hexToColor]") {
     SECTION("hex code too long") {
         REQUIRE_THROWS_AS(hexToColor("#0000000"), std::invalid_argument);
     }
@@ -105,7 +105,7 @@ TEST_CASE("hexToColor returning error message on incorrect hex code", "[hexToCol
     }
 }
 
-TEST_CASE("operator<< formats Color correctly", "[streamOperator]") {
+TEST_CASE("operator<< formats Color correctly", "[color_utils][streamOperator]") {
     Color c(10,20,30);
     std::ostringstream oss;
     oss << c;
