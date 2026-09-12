@@ -27,6 +27,9 @@ target_include_directories(image_generator_lib PUBLIC include PRIVATE ${stb_SOUR
 
 add_executable(tests 
     tests/test_colormap.cpp
+    tests/test_canvas.cpp
+    tests/test_color_utils.cpp
+    tests/test_math_utils.cpp
 )
 target_link_libraries(tests PRIVATE image_generator_lib Catch2::Catch2WithMain)
 
