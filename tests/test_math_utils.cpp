@@ -19,3 +19,26 @@ TEST_CASE("normalizeToRange returning correct values", "[math_utils][normalizeTo
         REQUIRE(normalizeToRange(6, 0, 9, 99, 0) == 66);
     }
 }
+
+TEST_CASE("normalizeToRange inputs not aligning properly", "[math_utils][normalizeToRange]") {
+    SECTION("min_target larger than max_target") {
+        REQUIRE_THROWS_AS(normalizeToRange(0,0,10,0,100), std::invalid_argument);
+    }
+
+    SECTION("max_target equal to min_target") {
+        REQUIRE_THROWS_AS(normalizeToRange(0,0,10,100,100), std::invalid_argument);
+    }
+
+    SECTION("min_value larger than max_value") {
+        REQUIRE_THROWS_AS(normalizeToRange(0,10,0,100,0), std::invalid_argument);
+    }
+
+    SECTION("max_value equal to min_value") {
+        REQUIRE_THROWS_AS(normalizeToRange(0,10,10,100,0), std::invalid_argument);
+    }
+
+    SECTION("value outside range in min_value and max_value") {
+        REQUIRE_THROWS_AS(normalizeToRange(-2,0,10,100,0), std::invalid_argument);
+        REQUIRE_THROWS_AS(normalizeToRange(12,0,10,100,0), std::invalid_argument);
+    }
+}
