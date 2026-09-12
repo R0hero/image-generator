@@ -11,6 +11,9 @@ Colormap::Colormap(const std::vector<Color>& colors) : colors_(colors) {
 }
 
 Color Colormap::sample(double t) const {
+    if (!(colors_.size() < 2)) {
+        throw std::invalid_argument("Colormap requires at least 2 colors");
+    }
     t = std::clamp(t, 0.0, 1.0);
     int sections = colors_.size() - 1;
     int segment_index = static_cast<int>(t * sections);
