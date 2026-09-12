@@ -38,12 +38,20 @@ TEST_CASE("Canvas::setPixel returns error when out of bounds", "[canvas]") {
     Canvas canvas(500, 500);
     Color c(0, 0, 0);
 
-    SECTION("Set pixel at negative values") {
-        REQUIRE_THROWS_AS(canvas.setPixel(-1, -1, c), std::invalid_argument);
+    SECTION("Set x-pixel at negative values") {
+        REQUIRE_THROWS_AS(canvas.setPixel(-1, 0, c), std::invalid_argument);
     }
 
-    SECTION("Set pixel at too large values") {
-        REQUIRE_THROWS_AS(canvas.setPixel(501, 501, c), std::invalid_argument);
+    SECTION("Set y-pixel at negative values") {
+        REQUIRE_THROWS_AS(canvas.setPixel(0, -1, c), std::invalid_argument);
+    }
+
+    SECTION("Set x-pixel at too large values") {
+        REQUIRE_THROWS_AS(canvas.setPixel(501, 0, c), std::invalid_argument);
+    }
+
+    SECTION("Set y-pixel at too large values") {
+        REQUIRE_THROWS_AS(canvas.setPixel(0, 501, c), std::invalid_argument);
     }
 }
 
@@ -51,11 +59,19 @@ TEST_CASE("Canvas::getPixel returns error when out of bounds", "[canvas]") {
     Canvas canvas(500, 500);
     Color c(0, 0, 0);
 
-    SECTION("Get pixel at negative values") {
-        REQUIRE_THROWS_AS(canvas.getPixel(-1, -1), std::invalid_argument);
+    SECTION("Get x-pixel at negative values") {
+        REQUIRE_THROWS_AS(canvas.getPixel(-1, 0), std::invalid_argument);
     }
 
-    SECTION("Get pixel at too large values") {
-        REQUIRE_THROWS_AS(canvas.getPixel(501, 501), std::invalid_argument);
+    SECTION("Get y-pixel at negative values") {
+        REQUIRE_THROWS_AS(canvas.getPixel(0, -1), std::invalid_argument);
+    }
+
+    SECTION("Get x-pixel at too large values") {
+        REQUIRE_THROWS_AS(canvas.getPixel(501, 0), std::invalid_argument);
+    }
+
+    SECTION("Get y-pixel at too large values") {
+        REQUIRE_THROWS_AS(canvas.getPixel(0, 501), std::invalid_argument);
     }
 }
