@@ -42,3 +42,11 @@ TEST_CASE("normalizeToRange inputs not aligning properly", "[math_utils][normali
         REQUIRE_THROWS_AS(normalizeToRange(12,0,10,100,0), std::invalid_argument);
     }
 }
+
+TEST_CASE("normalizeToRange handles overflow of int", "[math_utils][normalizeToRange]") {
+    REQUIRE(normalizeToRange(1000000, 0, 1000000, 2000000000, 0) == 2000000000);
+}
+
+TEST_CASE("normalizeToRange handles negative values", "[math_utils][normalizeToRange]") {
+    REQUIRE(normalizeToRange(0, -10, 10, 100, 0) == 50);
+}
