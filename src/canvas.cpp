@@ -14,10 +14,10 @@ Canvas::Canvas(int width, int height) : width_(width), height_(height), pixels_(
 }
 
 void Canvas::checkBounds(int x, int y) const {
-    if (x < 0 || x > width_) {
+    if (x < 0 || x >= width_) {
         throw std::invalid_argument("x not in range");
     }
-    if (y < 0 || y > height_) {
+    if (y < 0 || y >= height_) {
         throw std::invalid_argument("y not in range");
     }
 }
