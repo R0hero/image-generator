@@ -53,3 +53,38 @@ TEST_CASE("lerpColor interpolating between two colors", "[lerpColor]") {
         REQUIRE(result.b == 128);
     }
 }
+
+TEST_CASE("hexToColor returning correct color", "[hexToColor]") {
+    SECTION("hexToColor return black") {
+        Color c(0,0,0);
+        Color result = hexToColor("#000000");
+        REQUIRE(result.r == c.r);
+        REQUIRE(result.g == c.g);
+        REQUIRE(result.b == c.b);
+    }
+
+    SECTION("hexToColor return white") {
+        Color c(255,255,255);
+        Color result = hexToColor("#FFFFFF");
+        REQUIRE(result.r == c.r);
+        REQUIRE(result.g == c.g);
+        REQUIRE(result.b == c.b);
+    }
+
+    SECTION("hexToColor return blue") {
+        Color c(0,0,255);
+        Color result = hexToColor("#0000FF");
+        REQUIRE(result.r == c.r);
+        REQUIRE(result.g == c.g);
+        REQUIRE(result.b == c.b);
+    }
+
+    SECTION("hexToColor return yellow") {
+        Color c(255,255,0);
+        Color result = hexToColor("#FFFF00");
+        REQUIRE(result.r == c.r);
+        REQUIRE(result.g == c.g);
+        REQUIRE(result.b == c.b);
+    }
+
+}
