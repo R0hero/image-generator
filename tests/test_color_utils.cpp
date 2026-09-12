@@ -88,3 +88,17 @@ TEST_CASE("hexToColor returning correct color", "[hexToColor]") {
     }
 
 }
+
+TEST_CASE("hexToColor returning error message on incorrect hex code", "[hexToColor]") {
+    SECTION("hex code too long") {
+        REQUIRE_THROWS_AS(hexToColor("#0000000"), std::invalid_argument);
+    }
+
+    SECTION("hex code too short") {
+        REQUIRE_THROWS_AS(hexToColor("#00000"), std::invalid_argument);
+    }
+
+    SECTION("hex code numbers exceeding base 16") {
+        REQUIRE_THROWS_AS(hexToColor("#GGGGGG"), std::invalid_argument);
+    }
+}
