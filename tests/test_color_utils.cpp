@@ -105,7 +105,7 @@ TEST_CASE("hexToColor returning error message on incorrect hex code", "[hexToCol
     }
 }
 
-TEST_CASE("operator<< formats Color correctly", "[operator<<]") {
+TEST_CASE("operator<< formats Color correctly", "[streamOperator]") {
     Color c(10,20,30);
     std::ostringstream oss;
     oss << c;
