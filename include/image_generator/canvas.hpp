@@ -10,6 +10,7 @@ class Canvas {
         Canvas(int width, int height);
         // member functions
         void setPixel(int x, int y, const Color& c);
+        Color getPixel(int x, int y) const;
         bool save(const std::string& filename);
     private:
         int width_, height_;
