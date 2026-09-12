@@ -108,3 +108,7 @@ TEST_CASE("Colormap::sample returns correct colors outside boundaries", "[colorm
         REQUIRE(result.b == 255);
     }
 }
+
+TEST_CASE("Colormap throws error if defined with 1 color", "[colormap]") {
+    REQUIRE_THROWS_AS(Colormap({Color(0,0,0)}), std::invalid_argument);
+}
