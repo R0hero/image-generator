@@ -2,6 +2,27 @@
 
 #include "image_generator/canvas.hpp"
 
+TEST_CASE("Ensure canvas size is correct", "[canvas]") {
+    Canvas canvas(500, 500);
+    Color c(255,255,255);
+    for (int x = 0; x <= 499; x++) {
+        for (int y = 0; y <= 499; y++) {
+            canvas.setPixel(x, y, c);
+        };
+    };
+    
+    SECTION("check largest possible pixels returns a color") {
+        Color result = canvas.getPixel(499, 499);
+        REQUIRE(result.r == c.r);
+        REQUIRE(result.g == c.g);
+        REQUIRE(result.b == c.b);
+    }
+
+    SECTION("check 1 over boundary returns error") {
+        REQUIRE_THROWS_AS(canvas.getPixel(500, 500), std::invalid_argument);
+    }
+} 
+
 TEST_CASE("Canvas::setPixel sets color and Canvas::getPixel returns same color", "[canvas]") {
     Canvas canvas(500, 500);
     Color c(100,100,100);
