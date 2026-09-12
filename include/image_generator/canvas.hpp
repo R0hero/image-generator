@@ -13,6 +13,7 @@ class Canvas {
         Color getPixel(int x, int y) const;
         bool save(const std::string& filename);
     private:
+        void checkBounds(int x, int y) const;
         int width_, height_;
         std::vector<uint8_t> pixels_;
 };
