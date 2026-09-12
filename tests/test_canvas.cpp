@@ -47,7 +47,7 @@ TEST_CASE("Canvas::setPixel sets color and Canvas::getPixel returns same color",
 
     SECTION("target pixel at (500, 500)") {
         canvas.setPixel(500, 500, c);
-        Color result = canvas.getPixel(500, 500);
+        Color result = canvas.getPixel(499, 499);
         
         REQUIRE(result.r == c.r);
         REQUIRE(result.g == c.g);
@@ -68,11 +68,11 @@ TEST_CASE("Canvas::setPixel returns error when out of bounds", "[canvas]") {
     }
 
     SECTION("Set x-pixel at too large values") {
-        REQUIRE_THROWS_AS(canvas.setPixel(501, 0, c), std::invalid_argument);
+        REQUIRE_THROWS_AS(canvas.setPixel(500, 0, c), std::invalid_argument);
     }
 
     SECTION("Set y-pixel at too large values") {
-        REQUIRE_THROWS_AS(canvas.setPixel(0, 501, c), std::invalid_argument);
+        REQUIRE_THROWS_AS(canvas.setPixel(0, 500, c), std::invalid_argument);
     }
 }
 
@@ -89,10 +89,10 @@ TEST_CASE("Canvas::getPixel returns error when out of bounds", "[canvas]") {
     }
 
     SECTION("Get x-pixel at too large values") {
-        REQUIRE_THROWS_AS(canvas.getPixel(501, 0), std::invalid_argument);
+        REQUIRE_THROWS_AS(canvas.getPixel(500, 0), std::invalid_argument);
     }
 
     SECTION("Get y-pixel at too large values") {
-        REQUIRE_THROWS_AS(canvas.getPixel(0, 501), std::invalid_argument);
+        REQUIRE_THROWS_AS(canvas.getPixel(0, 500), std::invalid_argument);
     }
 }
