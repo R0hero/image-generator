@@ -1,6 +1,8 @@
 #pragma once
 #include <cstdint>
 
+struct Vec; 
+
 struct Point {
     int x;
     int y;
