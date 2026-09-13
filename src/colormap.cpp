@@ -7,10 +7,13 @@
 #include "image_generator/utils/color_utils.hpp"
 
 Colormap::Colormap(const std::vector<Color>& colors) : colors_(colors) {
-
+    if (!(colors_.size() > 1)) {
+        throw std::invalid_argument("Colormap requires at least 2 colors");
+    }
 }
 
 Color Colormap::sample(double t) const {
+    t = std::clamp(t, 0.0, 1.0);
     int sections = colors_.size() - 1;
     int segment_index = static_cast<int>(t * sections);
     segment_index = std::min(segment_index, sections - 1);

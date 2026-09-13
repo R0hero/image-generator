@@ -11,10 +11,36 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(stb)
 
-add_executable(image_generator
-    src/main.cpp
+FetchContent_Declare(
+    catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG v3.16.0
+    GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(catch2)
+
+enable_testing()
+
+add_library(image_generator_lib
     src/canvas.cpp
     src/colormap.cpp
 )
+target_include_directories(image_generator_lib PUBLIC include PRIVATE ${stb_SOURCE_DIR})
 
-target_include_directories(image_generator PRIVATE include ${stb_SOURCE_DIR})
+add_executable(tests 
+    tests/test_colormap.cpp
+    tests/test_canvas.cpp
+    tests/test_color_utils.cpp
+    tests/test_math_utils.cpp
+)
+target_link_libraries(tests PRIVATE image_generator_lib Catch2::Catch2WithMain)
+
+add_executable(image_generator
+    src/main.cpp
+)
+target_link_libraries(image_generator PRIVATE image_generator_lib)
+
+include(CTest)
+include(Catch)
+
+catch_discover_tests(tests)
