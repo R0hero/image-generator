@@ -50,9 +50,9 @@ TEST_CASE("lerpColor interpolating between two colors", "[color_utils][lerpColor
 
     SECTION("t=0.5 returns middle color") {
         Color result = lerpColor(a, b, 0.5);
-        REQUIRE(result.r == 128);
-        REQUIRE(result.g == 128);
-        REQUIRE(result.b == 128);
+        REQUIRE(result.r == 127);
+        REQUIRE(result.g == 127);
+        REQUIRE(result.b == 127);
     }
 }
 

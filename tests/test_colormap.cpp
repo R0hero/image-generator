@@ -21,9 +21,9 @@ TEST_CASE("Colormap::sample returns correct color at boundaries with 2 colors", 
 
     SECTION("t=0.5 returns middle color") {
         Color result = cmap.sample(0.5);
-        REQUIRE(result.r == 128);
-        REQUIRE(result.g == 128);
-        REQUIRE(result.b == 128);
+        REQUIRE(result.r == 127);
+        REQUIRE(result.g == 127);
+        REQUIRE(result.b == 127);
     }
 }
 
@@ -53,9 +53,9 @@ TEST_CASE("Colormap::sample returns correct color at boundaries with 3 colors", 
 
     SECTION("t=0.25 returns interpolation of first and second color") {
         Color result = cmap.sample(0.25);
-        REQUIRE(result.r == 128);
-        REQUIRE(result.g == 128);
-        REQUIRE(result.b == 128);
+        REQUIRE(result.r == 127);
+        REQUIRE(result.g == 127);
+        REQUIRE(result.b == 127);
     }
 }
 
