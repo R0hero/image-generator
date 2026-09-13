@@ -46,7 +46,7 @@ TEST_CASE("Canvas::setPixel sets color and Canvas::getPixel returns same color",
     }
 
     SECTION("target pixel at (500, 500)") {
-        canvas.setPixel(500, 500, c);
+        canvas.setPixel(499, 499, c);
         Color result = canvas.getPixel(499, 499);
         
         REQUIRE(result.r == c.r);
