@@ -3,7 +3,7 @@
 #include <cmath>
 
 Vec Point::toVec() const {
-    return Vec(static_cast<double>(x), static_cast<double>(y))
+    return Vec(static_cast<double>(x), static_cast<double>(y));
 }
 
 Point Vec::toPoint() const {
