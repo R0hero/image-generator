@@ -13,9 +13,9 @@ TEST_CASE("Ensure canvas size is correct", "[canvas]") {
     
     SECTION("check largest possible pixels returns a color") {
         Color result = canvas.getPixel(499, 499);
-        REQUIRE(result.r == c.r);
-        REQUIRE(result.g == c.g);
-        REQUIRE(result.b == c.b);
+        REQUIRE(static_cast<int>(result.r) == c.r);
+        REQUIRE(static_cast<int>(result.g) == c.g);
+        REQUIRE(static_cast<int>(result.b) == c.b);
     }
 
     SECTION("check 1 over boundary returns error") {
@@ -31,27 +31,27 @@ TEST_CASE("Canvas::setPixel sets color and Canvas::getPixel returns same color",
         canvas.setPixel(0, 0, c);
         Color result = canvas.getPixel(0, 0);
         
-        REQUIRE(result.r == c.r);
-        REQUIRE(result.g == c.g);
-        REQUIRE(result.b == c.b); 
+        REQUIRE(static_cast<int>(result.r) == c.r);
+        REQUIRE(static_cast<int>(result.g) == c.g);
+        REQUIRE(static_cast<int>(result.b) == c.b); 
     }
 
     SECTION("target pixel at (150, 150)") {
         canvas.setPixel(150, 150, c);
         Color result = canvas.getPixel(150, 150);
         
-        REQUIRE(result.r == c.r);
-        REQUIRE(result.g == c.g);
-        REQUIRE(result.b == c.b);
+        REQUIRE(static_cast<int>(result.r) == c.r);
+        REQUIRE(static_cast<int>(result.g) == c.g);
+        REQUIRE(static_cast<int>(result.b) == c.b);
     }
 
     SECTION("target pixel at (500, 500)") {
         canvas.setPixel(499, 499, c);
         Color result = canvas.getPixel(499, 499);
         
-        REQUIRE(result.r == c.r);
-        REQUIRE(result.g == c.g);
-        REQUIRE(result.b == c.b);
+        REQUIRE(static_cast<int>(result.r) == c.r);
+        REQUIRE(static_cast<int>(result.g) == c.g);
+        REQUIRE(static_cast<int>(result.b) == c.b);
     }
 }
 
