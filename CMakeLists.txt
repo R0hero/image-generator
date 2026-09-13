@@ -19,6 +19,8 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(catch2)
 
+enable_testing()
+
 add_library(image_generator_lib
     src/canvas.cpp
     src/colormap.cpp
@@ -37,3 +39,8 @@ add_executable(image_generator
     src/main.cpp
 )
 target_link_libraries(image_generator PRIVATE image_generator_lib)
+
+include(CTest)
+include(Catch)
+
+catch_discover_tests(tests)
