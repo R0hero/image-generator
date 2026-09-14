@@ -22,11 +22,11 @@ void Canvas::checkBounds(int x, int y) const {
     }
 }
 
-int Canvas::getHeight() {
+int Canvas::getHeight() const {
     return height_;
 }
 
-int Canvas::getWidth() {
+int Canvas::getWidth() const {
     return width_;
 }
 

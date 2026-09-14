@@ -9,8 +9,8 @@ class Canvas {
     public:
         Canvas(int width, int height);
         // member functions
-        int getWidth();
-        int getHeight();
+        int getWidth() const;
+        int getHeight() const;
         void setPixel(int x, int y, const Color& c);
         Color getPixel(int x, int y) const;
         bool save(const std::string& filename);
