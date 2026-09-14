@@ -16,9 +16,7 @@ Vec Lichtenberg::findDirection() {
 
     // define distance to each side of the canvas
     int distToLeft = starting_x_;
-    int distToRight = starting_x_ - canvas_.getWidth();
+    int distToRight = canvas_.getWidth() - starting_x_;
     int distToTop = starting_y_;
-    int distToBottom = starting_y_ - canvas_.getHeight();
-
-    
+    int distToBottom = canvas_.getHeight() - starting_y_;
 }
