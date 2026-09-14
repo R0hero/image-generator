@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(image_generator CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -24,6 +25,7 @@ enable_testing()
 add_library(image_generator_lib
     src/canvas.cpp
     src/colormap.cpp
+    src/lichtenberg.cpp
 )
 target_include_directories(image_generator_lib PUBLIC include PRIVATE ${stb_SOURCE_DIR})
 
