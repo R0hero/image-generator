@@ -7,6 +7,10 @@ Lichtenberg::Lichtenberg(int starting_x, int starting_y, uint64_t seed, Canvas& 
 
 }
 
+double Lichtenberg::calculateWeight(const double& dist) {
+    return 1 / (dist + 1e-10);
+}
+
 Vec Lichtenberg::findDirection() {
     // define directional vectors for each side of the canvas
     Vec topVector = Vec(0, 1);
