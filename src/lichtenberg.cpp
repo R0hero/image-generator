@@ -33,9 +33,11 @@ Vec Lichtenberg::findDirection() {
     double weightBottom = calculateWeight(distToBottom);
 
     Vec weightedSum = (vectorLeft * weightLeft) + (vectorRight * weightRight) + (vectorTop * weightTop) + (vectorBottom * weightBottom);
-    Vec direction = weightedSum / weightedSum.length();
 
-    return direction;
+    if (weightedSum.length() < 1e-9) {
+        return randomDirection();
+    } 
+    return weightedSum / weightedSum.length();
 }
 
 Vec Lichtenberg::randomDirection() {
