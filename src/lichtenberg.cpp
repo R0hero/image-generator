@@ -13,10 +13,10 @@ double Lichtenberg::calculateWeight(const double& dist) {
 
 Vec Lichtenberg::findDirection() {
     // define directional vectors for each side of the canvas
-    Vec topVector = Vec(0, 1);
-    Vec leftVector = Vec(1, 0);
-    Vec rightVector = Vec(-1, 0);
-    Vec lowerVector = Vec(0, -1);
+    Vec vectorTop = Vec(0, 1);
+    Vec vectorLeft = Vec(1, 0);
+    Vec vectorRight = Vec(-1, 0);
+    Vec vectorBottom = Vec(0, -1);
 
     // define distance to each side of the canvas
     int distToLeft = starting_x_;
