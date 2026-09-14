@@ -23,4 +23,10 @@ Vec Lichtenberg::findDirection() {
     int distToRight = canvas_.getWidth() - starting_x_;
     int distToTop = starting_y_;
     int distToBottom = canvas_.getHeight() - starting_y_;
+
+    // calculate weights
+    double weightLeft = calculateWeight(distToLeft);
+    double weightRight = calculateWeight(distToRight);
+    double weightTop = calculateWeight(distToTop);
+    double weightBottom = calculateWeight(distToBottom);
 }
