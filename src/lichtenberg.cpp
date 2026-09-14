@@ -31,4 +31,7 @@ Vec Lichtenberg::findDirection() {
     double weightBottom = calculateWeight(distToBottom);
 
     Vec weightedSum = (vectorLeft * weightLeft) + (vectorRight * weightRight) + (vectorTop * weightTop) + (vectorBottom * weightBottom);
+    Vec direction = weightedSum / weightedSum.length();
+
+    return direction;
 }
