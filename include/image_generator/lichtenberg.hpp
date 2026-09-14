@@ -9,6 +9,7 @@ class Lichtenberg {
     public: 
         Lichtenberg(int starting_x, int starting_y, uint64_t seed, Canvas& canvas);
         Vec findDirection();
+        Vec randomDirection();
         double calculateWeight(const double& dist);
 
     private:

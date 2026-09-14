@@ -1,5 +1,7 @@
 #include "image_generator/lichtenberg.hpp"
 
+#include <numbers>
+
 #include "image_generator/canvas.hpp"
 #include "image_generator/geometry.hpp"
 
@@ -34,4 +36,10 @@ Vec Lichtenberg::findDirection() {
     Vec direction = weightedSum / weightedSum.length();
 
     return direction;
+}
+
+Vec Lichtenberg::randomDirection() {
+    std::uniform_real_distribution<double> angleDist(0.0, 2 * std::numbers::pi);
+    double angle = angleDist(generator_);
+    return Vec(std::cos(angle), std::sin(angle));
 }
