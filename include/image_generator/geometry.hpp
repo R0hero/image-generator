@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <cmath>
 
 struct Vec; 
 
@@ -21,6 +22,18 @@ struct Vec {
     Vec(double x, double y) : x(x), y(y) {
 
     };
+
+    Vec operator+(const Vec& other) const {
+        return Vec(x + other.x, y + other.y);
+    }
+
+    Vec operator*(double scalar) const {
+        return Vec(x * scalar, y * scalar);
+    }
+
+    double length() const {
+        return std::sqrt(std::pow(x,2)+std::pow(y,2));
+    }
 
     Point toPoint() const;
 };
