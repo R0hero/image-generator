@@ -22,6 +22,14 @@ void Canvas::checkBounds(int x, int y) const {
     }
 }
 
+int Canvas::getHeight() {
+    return height_;
+}
+
+int Canvas::getWidth() {
+    return width_;
+}
+
 void Canvas::setPixel(int x, int y, const Color& c) {
     Canvas::checkBounds(x, y);
     int row_pixels = y * width_ * 3;
