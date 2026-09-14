@@ -31,6 +31,10 @@ struct Vec {
         return Vec(x * scalar, y * scalar);
     }
 
+    Vec operator/(double scalar) const {
+        return Vec(x / scalar, y / scalar);
+    }
+
     double length() const {
         return std::sqrt(std::pow(x,2)+std::pow(y,2));
     }
