@@ -29,6 +29,14 @@ void Canvas::setPixel(int x, int y, const Color& c) {
     pixels_[index] = c.r; pixels_[index+1] = c.g; pixels_[index+2] = c.b;
 }
 
+Color Canvas::getPixel(int x, int y) const {
+    Canvas::checkBounds(x, y);
+    int row_pixels = y * width_ * 3;
+    int index = row_pixels + x * 3;
+    Color c(pixels_[index], pixels_[index+1], pixels_[index+2]);
+    return c;
+}
+
 bool Canvas::save(const std::string& filename) {
     int component_count = 3;
     int stride_expression = width_*component_count;
@@ -37,12 +45,4 @@ bool Canvas::save(const std::string& filename) {
         return false;
     }
     return true;
-}
-
-Color Canvas::getPixel(int x, int y) const {
-    Canvas::checkBounds(x, y);
-    int row_pixels = y * width_ * 3;
-    int index = row_pixels + x * 3;
-    Color c(pixels_[index], pixels_[index+1], pixels_[index+2]);
-    return c;
 }
