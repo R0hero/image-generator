@@ -12,6 +12,7 @@ class Lichtenberg {
         Vec randomDirection();
         double calculateWeight(const double& dist);
         Point computeTrunkTarget();
+        void testDrawStraightLine(const Point& start, const Point& end);
 
     private:
         int starting_x_, starting_y_;

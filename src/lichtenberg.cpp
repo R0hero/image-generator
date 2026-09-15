@@ -1,6 +1,7 @@
 #include "image_generator/lichtenberg.hpp"
 
 #include <numbers>
+#include <cstdlib>
 
 #include "image_generator/canvas.hpp"
 #include "image_generator/geometry.hpp"
@@ -51,4 +52,36 @@ Point Lichtenberg::computeTrunkTarget() {
     Point start(starting_x_, starting_y_);
     Vec targetVec = start.toVec() + (direction * temp_length);
     return targetVec.toPoint();
+}
+
+void Lichtenberg::testDrawStraightLine(const Point& start, const Point& end) {
+    // calculate absolute differences
+    int diffX = std::abs(end.x - start.x);
+    int diffY = std::abs(end.y - start.y);
+
+    int stepX = (start.x < end.x) ? 1 : -1;
+    int stepY = (start.y < end.y) ? 1 : -1;
+
+    int err = diffX - diffY;
+
+    Point pixelToColor = Point(start.x, start.y);
+    
+    while(true) {
+        canvas_.setPixel(pixelToColor.x, pixelToColor.y, Color(128,128,128));
+
+        if (pixelToColor.x == end.x && pixelToColor.y == end.y) {
+            break;
+        }
+
+        int e2 = 2 * err;
+
+        if (e2 > -diffY) {
+            err = err - diffY;
+            pixelToColor = pixelToColor + Point(stepX, 0);
+        }
+        if (e2 < diffX) {
+            err = err + diffX;
+            pixelToColor = pixelToColor + Point(0, stepY);
+        }
+    }
 }
