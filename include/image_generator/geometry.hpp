@@ -16,12 +16,8 @@ struct Point {
         return Point(x - other.x, y - other.y);
     }
 
-    int getX() const {
-        return x;
-    }
-    
-    int getY() const {
-        return y;
+    Point operator+(const Point& other) const {
+        return Point(x + other.x, y + other.y);
     }
 
     Vec toVec() const;
