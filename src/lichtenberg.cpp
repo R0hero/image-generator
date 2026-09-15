@@ -47,5 +47,8 @@ Vec Lichtenberg::randomDirection() {
 }
 
 Point Lichtenberg::computeTrunkTarget() {
-    
+    Vec direction = findDirection();
+    Point start(starting_x_, starting_y_);
+    Vec targetVec = start.toVec() + (direction * temp_length);
+    return targetVec.toPoint();
 }

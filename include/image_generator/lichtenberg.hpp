@@ -15,6 +15,7 @@ class Lichtenberg {
 
     private:
         int starting_x_, starting_y_;
+        static constexpr double temp_length = 200.0;
         uint64_t seed_;
         std::mt19937_64 generator_;
         Canvas& canvas_;
