@@ -16,11 +16,11 @@ struct Point {
         return Point(x - other.x, y - other.y);
     }
 
-    int getX() {
+    int getX() const {
         return x;
     }
     
-    int getY() {
+    int getY() const {
         return y;
     }
 
