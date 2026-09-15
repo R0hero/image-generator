@@ -45,3 +45,7 @@ Vec Lichtenberg::randomDirection() {
     double angle = angleDist(generator_);
     return Vec(std::cos(angle), std::sin(angle));
 }
+
+Point Lichtenberg::computeTrunkTarget() {
+    
+}
