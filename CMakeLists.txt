@@ -26,6 +26,7 @@ add_library(image_generator_lib
     src/canvas.cpp
     src/colormap.cpp
     src/lichtenberg.cpp
+    src/geometry.cpp
 )
 target_include_directories(image_generator_lib PUBLIC include PRIVATE ${stb_SOURCE_DIR})
 
