@@ -47,10 +47,28 @@ Vec Lichtenberg::randomDirection() {
     return Vec(std::cos(angle), std::sin(angle));
 }
 
+double Lichtenberg::calculateLength(const Vec& direction) {
+    // define distance to each side of the canvas
+    int distToLeft = starting_x_;
+    int distToRight = canvas_.getWidth() - 1 - starting_x_;
+    int distToTop = starting_y_;
+    int distToBottom = canvas_.getHeight() - 1 - starting_y_;
+    
+    double tx = (direction.x > 0) ? distToRight / direction.x : distToLeft / -direction.x;
+    double ty = (direction.y > 0) ? distToBottom / direction.y : distToTop / -direction.y;
+
+    double maxLength = std::min(tx, ty);
+
+    std::uniform_real_distribution<double> lengthDist(0.65, 0.97);
+    double length = lengthDist(generator_);
+    return maxLength * length;
+}
+
 Point Lichtenberg::computeTrunkTarget() {
     Vec direction = findDirection();
+    double trunkLength = calculateLength(direction);
     Point start(starting_x_, starting_y_);
-    Vec targetVec = start.toVec() + (direction * temp_length);
+    Vec targetVec = start.toVec() + (direction * trunkLength);
     return targetVec.toPoint();
 }
 

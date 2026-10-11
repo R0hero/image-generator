@@ -12,11 +12,11 @@ class Lichtenberg {
         Vec randomDirection();
         double calculateWeight(const double& dist);
         Point computeTrunkTarget();
+        double calculateLength(const Vec& direction);
         void testDrawStraightLine(const Point& start, const Point& end);
 
     private:
         int starting_x_, starting_y_;
-        static constexpr double temp_length = 200.0;
         uint64_t seed_;
         std::mt19937_64 generator_;
         Canvas& canvas_;
