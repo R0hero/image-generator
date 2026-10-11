@@ -13,12 +13,12 @@ int main() {
     int width = 800;
     int height = 800;
     Canvas canvas(width, height);
-    int starting_x_ = 400;
-    int starting_y_ = 400;
+    int starting_x = 400;
+    int starting_y = 400;
     uint64_t seed = 12312323;
-    Lichtenberg lichtenberg(starting_x_, starting_y_, seed, canvas);
+    Lichtenberg lichtenberg(starting_x, starting_y, seed, canvas);
     Point target = lichtenberg.computeTrunkTarget();
-    lichtenberg.testDrawStraightLine(Point(starting_x_, starting_y_), target);
+    lichtenberg.testDrawStraightLine(Point(starting_x, starting_y), target);
 
     if (!canvas.save("output/output.png")) {
         throw std::runtime_error("Failed to save image");
